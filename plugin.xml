@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-bartinter-madrinx"
+    version="1.0.1-release">
+    <name>BarTinter</name>
+    <description>Cordova BarTinter Plugin</description>
+    <license>GNU General Public License 3</license>
+    <keywords>cordova,bartintner,statusbar,navigationbar</keywords>
+
+    <engines>
+            <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/BarTinter.js" name="BarTinter">
+        <clobbers target="cordova.BarTinter" />
+    </js-module>
+
+    <platform name="android">
+        <source-file src="src/android/BarTinter.java" target-dir="src/com/dw/bartinter" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BarTinter">
+                <param name="android-package" value="com.dw.bartinter.BarTinter" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+    </platform>
+</plugin>
